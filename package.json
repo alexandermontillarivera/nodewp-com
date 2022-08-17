@@ -1,7 +1,7 @@
 {
   "name": "nodewp.com",
   "repository": {
-    "url": "https://github.com/alexandermontillarivera/nodewpress"
+    "url": "https://github.com/alexandermontillarivera/nodewp.com"
   },
   "version": "1.0.1",
   "description": "The WordPress.com Node.js free API access library",
