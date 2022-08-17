@@ -3,7 +3,7 @@
   "repository": {
     "url": "https://github.com/alexandermontillarivera/nodewpress"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The WordPress.com Node.js free API access library",
   "main": "lib/index.js",
   "types": ".d.ts",
