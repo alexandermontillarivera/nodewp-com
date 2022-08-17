@@ -1,4 +1,4 @@
-# Nodewp
+# Nodewp.com
 
 Query in an easy way the public API of wordpress.com, with a set of functions that bring all the data with 1 or 2 parameters 📞
 
@@ -6,7 +6,7 @@ Query in an easy way the public API of wordpress.com, with a set of functions th
 
 Installation in your project 📁
 ```console
-npm install nodewp
+npm install nodewp.com
 ```
 
 ## Usage 🎯
@@ -17,12 +17,12 @@ Import the module with an alias or a specific function from the library 📦
 
 ```javascript
 import express from 'express'
-import nodewpress from 'nodewpress'
+import wp from 'nodewp.com'
 
 const app = express()
 
 app.get('/', async (req, res) => {
-    const data = await nodewpress.getPosts({site: 'Your id site or domain site'})
+    const data = await wp.getPosts({site: 'Your id site or domain site'})
     try{
         res.json(data)
     } catch (error) {
@@ -39,11 +39,11 @@ app.listen(3000, () => {
 ### Navigator example  🔎
 
 ```javascript
-import nodewpress from 'nodewpress'
+import wp from 'nodewp.com'
 
 const render = async () => {
     const app = document.getElementById('app')
-    const data = await nodewpress.getPosts({site: 'Your id site or domain site'})
+    const data = await wp.getPosts({site: 'Your id site or domain site'})
     data.map(({title, post_thumbnail}) => {
         app.innerHTML += `
         	<h2>${title}</h2>
@@ -76,23 +76,23 @@ document.addEventListener('load', () => {
 
 **Even if you have no idea about TypeScript, see the links to see what you can access if you use JavaScript after using one of the methods**
 
-1. [Types of the posts](https://github.com/alexandermontillarivera/nodewpress/blob/master/types/posts.ts)
-2. [Types of the comments](https://github.com/alexandermontillarivera/nodewpress/blob/master/types/comments.ts)
-3. [Types of the categories](https://github.com/alexandermontillarivera/nodewpress/blob/master/types/categories.ts)
-4. [Types of the tags](https://github.com/alexandermontillarivera/nodewpress/blob/master/types/tags.ts)
+1. [Types of the posts](https://github.com/alexandermontillarivera/nodewp.com/blob/master/types/posts.ts)
+2. [Types of the comments](https://github.com/alexandermontillarivera/nodewp.com/blob/master/types/comments.ts)
+3. [Types of the categories](https://github.com/alexandermontillarivera/nodewp.com/blob/master/types/categories.ts)
+4. [Types of the tags](https://github.com/alexandermontillarivera/nodewp.com/blob/master/types/tags.ts)
 
 
 ### NodeJs, TypeScript and express framework example 📦
 
 ```typescript
 import express, {Request, Response, Express} from 'express'
-import type { Post } from 'nodewpress/types/posts.ts' 
-import nodewpress from 'nodewpress'
+import type { Post } from 'nodewp.com/types/posts' 
+import wp from 'nodewp.com'
 
 const app: Express = express()
 
 app.get('/', async (_req: Request, res: Response) => {
-    const data: Array<Post> = await nodewpress.getPosts({site: 'Your id site or domain site'})
+    const data: Array<Post> = await wp.getPosts({site: 'Your id site or domain site'})
     try{
         res.json(data)
     } catch (error) {
@@ -109,21 +109,21 @@ app.listen(3000, () => {
 ### Navigator example  (use vite as recommendation) 🔎 
 
 ```typescript
-import nodewpress from 'nodewpress'
-import type { Post } from 'nodewpress/types/posts.ts'
+import wp from 'nodewp.com'
+import type { Post } from 'nodewp.com/types/posts'
 
 const render = async () => {
     const app = document.querySelector<HTMLDivElement>('#app')
-    const data: Array<Post> = await nodewpress.getPosts({site: 'Your id site or domain site'})
+    const data: Array<Post> = await wp.getPosts({site: 'Your id site or domain site'})
     data.map(({title, post_thumbnail}) => {
-        app.innerHTML += `
+        app!.innerHTML += `
         	<h2>${title}</h2>
         	<img src='${post_thumbnail.URL}' />
         `
     })
 }
 
-document.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   render()
 })
 
