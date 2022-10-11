@@ -1,4 +1,4 @@
-export type Tag = {
+export interface Tag {
   ID: number
   name: string
   slug: string
@@ -8,13 +8,14 @@ export type Tag = {
   meta: TagMeta
 }
 
-export type TagMeta = {
+export interface TagMeta {
   links: TagMetaLink
 }
 
-
-export type TagMetaLink = {
+export interface TagMetaLink {
   self: string
   help: string
   site: string
 }
+
+export default Tag

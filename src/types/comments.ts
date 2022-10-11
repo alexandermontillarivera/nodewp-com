@@ -1,6 +1,6 @@
 import type { PostAuthor } from './posts.js'
 
-export type Comment = {
+export interface Comment {
   ID: number
   post: CommentPost
   author: PostAuthor
@@ -19,18 +19,18 @@ export type Comment = {
   i_replied: boolean
 }
 
-export type CommentPost = {
+export interface CommentPost {
   ID: number
   title: string
   type: string
   link: string
 }
 
-export type CommentMeta = {
+export interface CommentMeta {
   links: CommentMetaLink
 }
 
-export type CommentMetaLink = {
+export interface CommentMetaLink {
   self: string
   help: string
   site: string
@@ -38,3 +38,5 @@ export type CommentMetaLink = {
   replies: string
   likes: string
 }
+
+export default Comment

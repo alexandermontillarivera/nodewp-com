@@ -1,4 +1,4 @@
-export type Category = {
+export interface Category {
   ID: number
   name: string
   slug: string
@@ -9,13 +9,14 @@ export type Category = {
   meta: CategoryMeta
 }
 
-export type CategoryMeta = {
+export interface CategoryMeta {
   links: CategoryMetaLink
 }
 
-
-export type CategoryMetaLink = {
+export interface CategoryMetaLink {
   self: string
   help: string
   site: string
 }
+
+export default Category

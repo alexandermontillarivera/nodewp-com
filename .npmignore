@@ -1,3 +1,7 @@
 .npmignore
 .gitignore
 node_modules
+.prettier
+src
+.eslintrc.json
+test

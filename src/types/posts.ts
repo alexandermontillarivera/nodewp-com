@@ -1,6 +1,7 @@
-import type { Tag } from './tags.js'
+import type Tag from './tags'
+import type Category from './categories'
 
-export type Post = {
+export interface Post {
   ID: number
   site_ID: number
   author: PostAuthor
@@ -31,16 +32,17 @@ export type Post = {
   geo: boolean
   menu_order: number
   page_template: string
-  publicize_URLs: Array<string>
+  publicize_URLs: string[]
   attachments: object
   attachment_count: number
-  metadata: Array<PostMetadata>
+  metadata: PostMetadata[]
   capabilities: PostCapabilities
   other_URLs: object
-  tag: Array<Tag>
+  tag: Tag[]
+  category: Category[]
 }
 
-export type PostDiscussion = {
+export interface PostDiscussion {
   comment_open: boolean
   comment_status: string
   pings_open: boolean
@@ -48,17 +50,16 @@ export type PostDiscussion = {
   comment_count: number
 }
 
-export type PostThumbnail = {
-  ID: number,
-  URL: string,
-  guid: string,
-  mime_type: string,
-  width: number,
+export interface PostThumbnail {
+  ID: number
+  URL: string
+  guid: string
+  mime_type: string
+  width: number
   height: number
 }
 
-
-export type PostAuthor = {
+export interface PostAuthor {
   ID: number
   login: string
   email: string
@@ -73,14 +74,21 @@ export type PostAuthor = {
   ip_address: boolean
 }
 
-export type PostMetadata = {
+export interface PostMetadata {
   id: string
   key: string
   value: string
 }
 
-export type PostCapabilities = {
+export interface PostCapabilities {
   publish_post: boolean
   delete_post: boolean
   edit_post: boolean
 }
+
+export interface PostMaster extends Post {
+  categories: any
+  tags: any
+}
+
+export default Post

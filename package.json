@@ -3,15 +3,38 @@
   "repository": {
     "url": "https://github.com/alexandermontillarivera/nodewp.com"
   },
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "The WordPress.com Node.js free API access library",
-  "main": "lib/index.js",
-  "types": ".d.ts",
-  "type": "module",
-  "keywords": ["Wordpress.com", "API Wordpress", "Wordpress", "API Wordpress for node", "API Wordpress for navigator"],
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/types/index.d.ts",
+  "keywords": [
+    "Wordpress.com",
+    "API Wordpress",
+    "Wordpress",
+    "API Wordpress for node",
+    "API Wordpress for navigator"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc --project tsconfig.esm.json & tsc --module commonjs --project tsconfig.cjs.json",
+    "test": "vitest"
+  },
   "author": "Alexander Montilla Rivera",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2"
+  },
+  "exports": {
+    "default": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "ts-standard": "^12.0.1",
+    "typescript": "^4.8.4",
+    "vitest": "^0.24.0"
   }
 }
